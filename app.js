@@ -11,7 +11,6 @@ async function request(method = '', qs = {}) {
 	qs.lang = userData.lang;
 	qs.v = '5.103';
 	let ans = await requestLib({method: "POST", uri: "https://api.vk.com/method/"+method, json: true, qs});
-	console.log(ans.response);
 	return ans.response;
 }
 

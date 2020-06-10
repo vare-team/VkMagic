@@ -3,194 +3,97 @@
 <head>
     <meta charset="UTF-8">
     <title>VK Magic</title>
-    <link rel="stylesheet" type="text/css" href="bootstrap-grid.min.css" >
     <style>
-        :focus {outline: none}
         * {cursor: default}
         :root {--main-bg: #1A1D2A;--main-bg-accent: #14161E;--main-bg-2-accent: #202432;--main-accent: #2C3750;--main-2-accent: #37476E;--main-red: #F04747;}
-        body {position: relative;margin: 0;padding: 0;width: 100%;height: 100%;font-family: "Arial";background: var(--main-bg);}
+        body {position: relative;margin: 0;padding: 0;width: 100%;height: 100%;font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';background: var(--main-bg);}
         a {text-decoration: none;}
-        h3 {color: white;text-align: center;font-weight: normal;margin: 15px 0 10px 0px;}
-        hr {margin: 0 -15px 15px -15px;border-style: solid;border-color: var(--main-bg-accent);border-width: 2px;}
-        footer {justify-content: center;padding: 8px 5px;position: absolute;bottom: 0;width: 100%;height: 30px;color: dimgray;font-size: 10px;/cursor: default;}
-
-        .login {
-            font-size: 16px;
-            margin-top: 15px;
-            color: white;
-            text-align: center;
-            padding: 7px;
-            background-color: var(--main-accent);
-            display: block;
-            cursor: pointer;
-        }
-        .hoverable {
-            transition: all .1s;
-            box-shadow: 0px 2px 2px rgba(0,0,0, .25);
-        }
-        .hoverable:hover {
-            box-shadow: 0px 3px 4px rgba(0,0,0, .5);
-            transform: translateY(1px);
-        }
-        .pageDetails {
-            padding-top: 10px;
-            color: white;
-            background-color: var(--main-bg-2-accent);
-            width: 100%;
-            height: 100vh;
-        }
-        .name {
-            color: white;
-        }
-        .modal {
-            display: block;
-            padding-top: 65px;
-            position: fixed;
-            z-index: 1;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0,0,0,0.9);
-        }
-        .modal-content {
-            font-size: 14px;
-            text-align: center;
-            position: relative;
-            background-color: var(--main-bg-2-accent);
-            color: #fff;
-            margin: auto;
-            padding: 15px;
-            width: 350px;
-            box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
-        }
-        .hint {
-            color: gray;
-            font-size: 12px;
-        }
-        .avatar {
-            margin-left: 10px;
-            margin-right: 10px;
-            width: 32px;
-            height: 32px;
-            object-fit: cover;
-            border-radius: 100%;
-        }
-        .label {
-            margin-top: -3px;
-            /*max-width: 144px;*/
-        }
-        .TabSwitcher {
-            display: grid;
-            margin: 5px -15px;
-        }
-        .TabButtonWork {
-            padding: 7px;
-            color: white;
-            background-color: var(--main-accent);
-            border: none;
-            cursor: pointer;
-            margin-bottom: 1px;
-        }
-        .TabButtonWork.active {
-            background-color: var(--main-2-accent);
-        }
-        .TabHandler {
-            color: white;
-            font-size: 14px;
-            padding: 5px;
-        }
-        .logout {
-            font-size: 16px;
-            width: 100%;
-            display: block;
-            color: var(--main-red);
-            border: var(--main-red);
-            padding: 7px;
-            cursor: pointer;
-            border-radius: 3px;
-            border: var(--main-red) solid 1px;
-            background-color: unset;
-            transition: all .1s;
-        }
-        .logout:hover {
-            background-color: var(--main-red);
-            color: white;
-        }
-        .upload {
-            margin-top: 10px;
-            background-color: var(--main-accent);
-            border: none;
-            border-radius: 3px;
-            padding: 7px;
-            display: block;
-            width: 100%;
-            cursor: pointer;
-            color: white;
-        }
-        .input-file {
-            color: white;
-            width: 100%;
-        }
-        .link {
-            color: cornflowerblue;
-            text-decoration: underline;
-            cursor: pointer;
-        }
+        h3 {color: white;text-align: center;font-weight: normal;margin: 10px 0;}
+        hr {margin: 10px -10px;border-style: solid;border-color: var(--main-bg-accent);border-width: 2px;}
+        .login {font-size: 16px;margin-top: 15px;color: white;text-align: center;padding: 7px;background-color: var(--main-accent);display: block;cursor: pointer;}
+        .hoverable {transition: all .1s;box-shadow: 0px 2px 2px rgba(0,0,0, .25);}
+        .hoverable:hover {box-shadow: 0px 3px 4px rgba(0,0,0, .5);transform: translateY(1px);}
+        .modal {display: block;padding-top: 65px;position: fixed;z-index: 1;left: 0;top: 0;width: 100%;height: 100%;background-color: rgba(0,0,0,0.9);}
+        .modal-content {font-size: 14px;text-align: center;position: relative;background-color: var(--main-bg-2-accent);color: #fff;margin: auto;padding: 15px;width: 350px;box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);}
+        .hint {color: gray;font-size: 12px;}
+        .TabButtonWork {padding: 7px;color: white;background-color: var(--main-accent);border: none;cursor: pointer;margin-bottom: 1px;}
+        .TabButtonWork.active {background-color: var(--main-2-accent);}
+        .TabHandler {color: white;font-size: 14px;padding: 5px;}
+        .logout {font-size: 16px;width: 100%;display: block;color: var(--main-red);border: var(--main-red);padding: 7px;cursor: pointer;border-radius: 3px;border: var(--main-red) solid 1px;background-color: unset;transition: all .1s;}
+        .logout:hover {background-color: var(--main-red);color: white;}
+        .upload {margin-top: 10px;background-color: var(--main-accent);border: none;border-radius: 3px;padding: 7px;display: block;width: 100%;cursor: pointer;color: white;}
+        .input-file {color: white;width: 100%;}
+        .link {color: cornflowerblue;text-decoration: underline;cursor: pointer;}
+        .container {height: 100vh;width: 100vw;display: grid;grid-template-columns: 230px 1fr;}
+        .leftMenu {position: relative;display: grid;grid-template-rows: 60px auto 20px;height: 100%;}
+        .leftMenu__user {display: grid;grid-template-columns: 32px auto;margin: 10px;grid-gap: 0 10px;}
+        .leftMenu__user-img {margin: auto;border-radius: 15px;width: 32px;height: 32px;}
+        .leftMenu__user--name-label {font-size: 12px;opacity: .8;color: white;}
+        .leftMenu__user-name {width: 100%;display: grid;}
+        .leftMenu__user--name-nick {color: white;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;}
+        .rightMenu__TabSwitcher {}
+        .rightMenu__TabSwitcher ul {width: 100%;list-style-type: none;display: grid;padding: 0;margin: 0;}
+        .rightMenu__TabSwitcher ul li {width: 100%;display: block;}
+        .rightMenu__TabSwitcher ul li button {width: 100%;}
+        .rightMenu__copyright {text-align: center;color: dimgray;font-size: 10px;}
+        .Tab {padding: 0 10px;}
+        .main__container {background: rgba(0,0,0,.1);}
     </style>
 </head>
-<body class="container-fluid">
-    <div class="modal" id="modal">
+<body>
+    <div role="dialog" class="modal" id="modal">
         <div class="modal-content">
             Приложению необходим доступ к вашему аккаунту для работы.
             <br>
             <a class="login hoverable" href="https://oauth.vk.com/authorize?client_id=7368444&display=page&redirect_uri=https://oauth.vk.com/blank.html&scope=196608&response_type=token&state=magiclogin" target="_blank">Войти</a>
         </div>
     </div>
-    <div class="row">
-        <div class="col-4 pageDetails">
-            <div class="row" style="margin-bottom: 10px">
-                <img src="whooves.png" alt="" class="avatar" align="middle" id="avatar">
-                <div class="label">
-                    <span class="hint">Вы вошли как:</span>
-                    <br><span id="name" class="name"></span>
+    <div class="container">
+        <div class="leftMenu">
+            <div class="leftMenu__user">
+                <img class="leftMenu__user-img" src="whooves.png" alt="Аватар пользователя" id="avatar">
+                <div class="leftMenu__user-name">
+                    <span class="leftMenu__user--name-label">Вы вошли как:</span>
+                    <span id="name" class="leftMenu__user--name-nick"></span>
                 </div>
             </div>
-            <div class="TabSwitcher">
-                <button class="TabButtonWork active hoverable">Информация</button>
-                <button class="TabButtonWork hoverable">Загрузка граффити</button>
-                <button class="TabButtonWork hoverable">Настройки</button>
-            </div>
-            <footer class="row">VK Magic - V1.0</footer>
+            <nav class="rightMenu__TabSwitcher">
+                <ul>
+                <li><button class="TabButtonWork active hoverable">Информация</button></li>
+                <li><button class="TabButtonWork hoverable">Загрузка граффити</button></li>
+                <li><button class="TabButtonWork hoverable">Настройки</button></li>
+                </ul>
+            </nav>
+            <footer class="rightMenu__copyright">VK Magic - V1.1</footer>
         </div>
-        <div class="col-8">
-            <div class="Tab" style="display: block">
+        <main class="main__container">
+            <article class="Tab" style="display: block">
                 <h3>Информация</h3>
                 <hr>
                 <div class="TabHandler">
                     VK Magic - различные утилитки для Вконтакте.
                     <br>
-                    Версия 1.0
+                    Версия <strong>1.1</strong>
                     <br>
-                    Разработано командой <a name="externalLink" class="link" href="https://server-discord.com/developers">SD.C</a>
+                    Разработано командой <a name="externalLink" class="link" href="https://server-discord.com/developers">Vare</a>
                     <br>
                     <br>
                     <a name="externalLink" class="link" href="https://discordapp.com/invite/8KKVhTU">Сервер в Discord</a>
                 </div>
-            </div>
-            <div class="Tab" style="display: none">
+            </article>
+            <article class="Tab" style="display: none">
                 <h3>Загрузка документа как граффити</h3>
                 <hr>
                 <input type="file" id="file" class="input-file" accept="image/png">
                 <span class="hint">Файл должен быть в формате <b>.PNG</b>, не должен превышать разрешение <b>1000x1000px</b> и не должен быть больше <b>200Кб</b>!</span>
                 <button id="fileUpload" class="upload hoverable">Загрузить</button>
-            </div>
-            <div class="Tab" style="display: none">
+            </article>
+            <article class="Tab" style="display: none">
                 <h3>Настройки</h3>
                 <hr>
                 <button class="logout hoverable" id="logout">Выйти</button>
-            </div>
-        </div>
+            </article>
+        </main>
     </div>
     <script defer src="renderer.js"></script>
 </body>

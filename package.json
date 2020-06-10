@@ -1,6 +1,6 @@
 {
   "name": "vkmagic",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Различные инструменты для облегчения жизни в соц.сети ВКонтакте",
   "main": "app.js",
   "scripts": {
@@ -9,7 +9,7 @@
     "pack": "electron-builder --dir",
     "build": "electron-builder"
   },
-  "author": "SDC (https://server-discord.com)",
+  "author": "Vare",
   "license": "MIT",
   "keywords": [
     "Vk",
